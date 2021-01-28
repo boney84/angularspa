@@ -1,0 +1,9 @@
+<p>Username <mat-form-field>
+    <input matInput type="text" placeholder="Username" [(ngModel)]="user.username">
+</mat-form-field> 
+</p> 
+<p>Password 
+    <mat-form-field>
+    <input matInput type="password" placeholder="Password" [(ngModel)]="user.password">
+</mat-form-field> </p>
+<button type="submit" (click)="loginSubmit()">Login</button>

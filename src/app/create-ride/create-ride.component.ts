@@ -1,4 +1,7 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+import { RideService } from '../services/ride.service';
 class Ride{
   source: string="";
   destination: string="";
@@ -12,7 +15,9 @@ class Ride{
 export class CreateRideComponent implements OnInit {
   ride: Ride= new Ride();
   rides: Array<Ride>= [];
-  constructor() { }
+
+  constructor(private rideService: RideService) { 
+  }
 
   ngOnInit(): void {
   }
@@ -47,10 +52,26 @@ export class CreateRideComponent implements OnInit {
   }
 
   onSave(){
-    this.rides.push(this.ride);
-    console.log(this.rides);
-    this.ride= new Ride();
-    console.log("Ride has been created successfully");
-    this.successMessage="Ride has been created successfully";
+    // add to json server
+
+this.rideService.addRide(this.ride)
+.subscribe(response=>{
+ this.rides.push(response);
+ this.ride= new Ride();
+ //this.successMessage="Ride has been created successfully";
+ console.log("Ride has been created successfully");console.log(this.rides);
+}, error=>{
+  
+  if(error.status==0){
+    console.log("500 Internal server error.Unable to process the request");
+  }
+  else if(error.status==404){
+    console.log("Resource not found");
+  }
+  else{
+    console.log(error.message);
+  }
+});
+    
   }
 }

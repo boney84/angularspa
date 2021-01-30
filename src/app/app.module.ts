@@ -8,6 +8,7 @@ import { MyrecentridesComponent } from './myrecentrides/myrecentrides.component'
 import { CreateRideComponent } from './create-ride/create-ride.component';
 import { LoginComponent } from './login/login.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HttpClientModule } from '@angular/common/http';
 
 // for mat-toolbar, mat-icon, mat-expansion module, material-card module
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -36,7 +37,8 @@ import {MatInputModule} from '@angular/material/input';
     MatCardModule,
     FormsModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

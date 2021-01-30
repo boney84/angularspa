@@ -16,3 +16,4 @@
     margin-left: 8px;
   }
   mat-expansion-panel{width: 50vw;}
+  mat-card{display: inline-flex; margin-right:5px;flex-direction: column;}

@@ -1,0 +1,11 @@
+Hi {{loggedInUser}}, Welcome to Quick Ride . You have logged in at {{loggedInTime}}
+<app-create-ride></app-create-ride>
+<mat-card *ngFor="let ride of rides">
+    <mat-card-content>
+      <p>Source: {{ride.source}} </p>
+    <p>Destination: {{ride.destination}} </p>
+    </mat-card-content>
+    <mat-card-actions>
+      <button (click)="deleteRide(ride.id)" mat-button><mat-icon>delete</mat-icon></button>
+    </mat-card-actions>
+  </mat-card>

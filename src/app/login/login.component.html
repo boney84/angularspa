@@ -1,9 +1,17 @@
-<p>Username <mat-form-field>
-    <input matInput type="text" placeholder="Username" [(ngModel)]="user.username">
+
+<form [formGroup]="loginForm">
+  <p>Username 
+      <mat-form-field>
+    <input matInput type="text" placeholder="Username" formControlName="username">
 </mat-form-field> 
+<small>{{getUsernameErrorMessage()}}</small>
 </p> 
 <p>Password 
     <mat-form-field>
-    <input matInput type="password" placeholder="Password" [(ngModel)]="user.password">
-</mat-form-field> </p>
-<button type="submit" (click)="loginSubmit()">Login</button>
+    <input matInput type="password" placeholder="Password" formControlName="password">
+</mat-form-field> 
+<small>{{getPassworErrorMessage()}} </small>
+</p>
+<button type="submit" [disabled]=loginForm.invalid (click)="loginSubmit()">Login</button>
+{{errorMessage}}
+</form>

@@ -1,7 +1,9 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { stringify } from '@angular/compiler/src/util';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Ride } from '../models/ride';
+import { AuthenticationService } from './authentication.service';
 
 @Injectable({
   providedIn: 'root'
@@ -9,19 +11,30 @@ import { Ride } from '../models/ride';
 
 
 export class RideService {
-  url: string="http://localhost:3000/rides";
+  url: string="http://localhost:3000/api/v1/rides";
   rides: Array<Ride>= [];
-  constructor(private httpClient: HttpClient) { }
+
+  constructor(private httpClient: HttpClient,
+   private authenticationService:AuthenticationService) { }
 
   getRides(){
-   return  this.httpClient.get<Array<Ride>>(this.url);
+   let token:any= this.authenticationService.getToken();
+   return  this.httpClient.get<Array<Ride>>(this.url,{
+   headers: new HttpHeaders().set("Authorization",`Bearer ${token}`)
+   });
   }
 
   addRide(ride: Ride) : Observable<Ride>{
-     return this.httpClient.post<Ride>(this.url,ride);
+    let token:any= this.authenticationService.getToken();
+     return this.httpClient.post<Ride>(this.url,ride,{
+       headers: new HttpHeaders().set("Authorization",`Bearer ${token}`)
+     });
     }
 
     deleteRide(rideId: number){
-     return this.httpClient.delete(this.url+"/"+rideId);
+      let token:any= this.authenticationService.getToken();
+     return this.httpClient.delete(this.url+"/"+rideId,{
+      headers: new HttpHeaders().set("Authorization",`Bearer ${token}`)
+     });
     }
 }

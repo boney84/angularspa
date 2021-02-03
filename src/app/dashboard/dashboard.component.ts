@@ -12,6 +12,7 @@ export class DashboardComponent implements OnInit {
   rides: Array<Ride>= [];
   loggedInUser:string='';
   loggedInTime:string='';
+  background:string='';
 
   constructor(private rideService: RideService, private activatedRoute: ActivatedRoute) { }
 

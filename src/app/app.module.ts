@@ -19,6 +19,8 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { FontcolorDirective } from './directives/fontcolor.directive';
+import { BackgroundDirective } from './directives/background.directive';
 
 @NgModule({
   declarations: [
@@ -27,7 +29,9 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     MyrecentridesComponent,
     CreateRideComponent,
     LoginComponent,
-    DashboardComponent
+    DashboardComponent,
+    FontcolorDirective,
+    BackgroundDirective
   ],
   imports: [
     BrowserModule,

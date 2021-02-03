@@ -1,6 +1,14 @@
 Hi {{loggedInUser}}, Welcome to Quick Ride . You have logged in at {{loggedInTime}}
+
 <app-create-ride></app-create-ride>
-<mat-card *ngFor="let ride of rides">
+<h4>Choose Background color</h4>
+<div>
+  <input type="radio" name="colors" (click)="background='lightgreen'" title="Green" />Green
+  <input type="radio" name="colors" (click)="background='yellow'" title="Yellow" />Yellow
+  <input type="radio" name="colors" (click)="background='cyan'" title="cyan" />Cyan
+</div>
+
+<mat-card appFontcolor="darkblue" [appBackground]="background"  *ngFor="let ride of rides">
     <mat-card-content>
       <p>Source: {{ride.source}} </p>
     <p>Destination: {{ride.destination}} </p>

@@ -1,2 +1,9 @@
+<h4>Choose Background color</h4>
+<div>
+  <input type="radio" name="colors" (click)="background='lightgreen'" title="Green" />Green
+  <input type="radio" name="colors" (click)="background='yellow'" title="Yellow" />Yellow
+  <input type="radio" name="colors" (click)="background='cyan'" title="cyan" />Cyan
+</div>
 
 
+<app-ridecard [background]=background  [ride]=ride *ngFor="let ride of rides"></app-ridecard>

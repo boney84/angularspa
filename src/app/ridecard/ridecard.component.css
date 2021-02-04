@@ -1,0 +1,7 @@
+mat-card{
+    background-color: #fff; 
+    display: inline-flex; 
+    margin-right:5px;
+    flex-direction: column;
+    color: black;
+}

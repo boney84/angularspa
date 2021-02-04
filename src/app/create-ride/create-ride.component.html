@@ -1,3 +1,4 @@
+<!-- <mat-expansion-panel> -->
 <p>Source <input type="text" (change)="onChangeSource($event)" 
     [style.background-color]="textcolor" [value]="ride.source"></p>
 {{errorMessage}}
@@ -5,8 +6,4 @@
 [style.background-color]="destinationTextcolor" [value]="ride.destination"></p>
 <button type="submit" (click)="onSave()">Save</button>
 {{successMessage}}
-
-<!-- <mat-card *ngFor="let ride of rides">
-    <p>Source: {{ride.source}} </p>
-    <p>Destination: {{ride.destination}} </p>
-</mat-card> -->
+<!-- </mat-expansion-panel> -->

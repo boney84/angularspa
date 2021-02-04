@@ -21,6 +21,8 @@ import {MatInputModule} from '@angular/material/input';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { FontcolorDirective } from './directives/fontcolor.directive';
 import { BackgroundDirective } from './directives/background.directive';
+import { RidecardComponent } from './ridecard/ridecard.component';
+
 
 @NgModule({
   declarations: [
@@ -31,7 +33,8 @@ import { BackgroundDirective } from './directives/background.directive';
     LoginComponent,
     DashboardComponent,
     FontcolorDirective,
-    BackgroundDirective
+    BackgroundDirective,
+    RidecardComponent
   ],
   imports: [
     BrowserModule,
